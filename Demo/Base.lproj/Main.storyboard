@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21219" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="QpV-UK-RBl">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21200"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <scene sceneID="Q5W-hj-57E">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                <viewController id="QpV-UK-RBl" customClass="ViewController" customModule="Demo" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xwH-37-g5S">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <subviews>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="選一首黑色的歌吧" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IkK-tL-1Oc">
+                                <rect key="frame" x="89.666666666666686" y="57" width="211" height="32"/>
+                                <gestureRecognizers/>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="H3L-lk-5nD" appends="YES" id="2Et-N5-Z3T"/>
+                                </connections>
+                            </label>
+                            <textField hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rjE-UR-XQo">
+                                <rect key="frame" x="29" y="107" width="97" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="eqL-vf-sZ9"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="IkK-tL-1Oc" firstAttribute="top" secondItem="eqL-vf-sZ9" secondAttribute="top" constant="10" id="05m-vk-1kc"/>
+                            <constraint firstItem="IkK-tL-1Oc" firstAttribute="centerX" secondItem="xwH-37-g5S" secondAttribute="centerX" id="CHU-S4-tAY"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="songLabel" destination="IkK-tL-1Oc" id="KEx-vX-S8H"/>
+                        <outlet property="songPickerView" destination="YF5-bc-Dlc" id="f6v-DY-M3X"/>
+                        <outlet property="songTextField" destination="rjE-UR-XQo" id="Hym-Iu-xe8"/>
+                        <outlet property="songToolbar" destination="vd6-PC-fPF" id="dZr-oQ-Zlh"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vgL-xt-LkB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="H3L-lk-5nD">
+                    <connections>
+                        <action selector="selectSong:" destination="QpV-UK-RBl" id="4dq-43-Qs7"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <pickerView contentMode="scaleToFill" id="YF5-bc-Dlc">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="162"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                    <connections>
+                        <outlet property="dataSource" destination="QpV-UK-RBl" id="EWt-qH-2Go"/>
+                        <outlet property="delegate" destination="QpV-UK-RBl" id="B7Z-OS-vpM"/>
+                    </connections>
+                </pickerView>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="vd6-PC-fPF">
+                    <rect key="frame" x="0.0" y="0.0" width="390" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem systemItem="cancel" id="b2L-cx-tvH">
+                            <connections>
+                                <action selector="selectSongCancel:" destination="QpV-UK-RBl" id="i27-JK-5ih"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="tBo-DL-l06"/>
+                        <barButtonItem systemItem="done" id="CcH-Yg-3Z5">
+                            <connections>
+                                <action selector="selectSongDone:" destination="QpV-UK-RBl" id="7YC-CU-nuc"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
+            <point key="canvasLocation" x="53" y="375"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>
